@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/budget-compass-pro-main/',
+  base: '/controle-despesas-receitas/',
   server: {
     host: "::",
     port: 8080,
