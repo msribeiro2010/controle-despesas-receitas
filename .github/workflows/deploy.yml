@@ -23,6 +23,23 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Create .nojekyll file
+        run: touch dist/.nojekyll
+
+      - name: Create _headers file
+        run: |
+          echo "/*" > dist/_headers
+          echo "  Content-Type: text/html; charset=utf-8" >> dist/_headers
+          echo "" >> dist/_headers
+          echo "/*.js" >> dist/_headers
+          echo "  Content-Type: application/javascript; charset=utf-8" >> dist/_headers
+          echo "" >> dist/_headers
+          echo "/*.mjs" >> dist/_headers
+          echo "  Content-Type: application/javascript; charset=utf-8" >> dist/_headers
+          echo "" >> dist/_headers
+          echo "/*.css" >> dist/_headers
+          echo "  Content-Type: text/css; charset=utf-8" >> dist/_headers
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
